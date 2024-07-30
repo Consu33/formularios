@@ -11,178 +11,179 @@
 </head>
 <body>
     <h1>Eventos Adversos</h1>
-    <div class="form">
-        <form  action = "registro.php" name="eventos_adversos"  method ="POST">
-            <input type="hidden" name="formulario" value="eventos_adversos">
+    <div class="form-container">
+        <div class="form">
+            <form  action = "registro.php" name="eventos_adversos"  method ="POST">
+                <input type="hidden" name="formulario" value="eventos_adversos">
 
-            <h2>Debe llenar el formulario completo, para realizar la notificación</h2>
+                <h2>Debe llenar el formulario completo, para realizar la notificación</h2>
+                    
+                <label for="ev_rut">PACIENTE RUT:</label>
+                <input type="text" id="ev_rut" name="ev_rut" required size="100">
+                                    
+                <label for="ev_ficha">N° FICHA CLÍNICA:</label>
+                <input type="number" id="ev_ficha" name="ev_ficha" required size="97"> 
+                    
+                <label for="nombre">FECHA:</label>
+                <input type="date" id="ev_fecha_ea" name="ev_fecha_ea">         
+                    
+                <label for="ev_servicio">SERVICIO QUE REPORTA EL EVENTO:</label>
+                <select name="ev_servicio" id="lang">
+                    <option value=""></option>
+                    <option value="ABASTECIMIENTO BODEGA">ABASTECIMIENTO BODEGA</option>
+                    <option value="ALIMENTACION Y NUTRICION">ALIMENTACION Y NUTRICION</option>
+                    <option value="ANATONOMIA PATOLOGICA">ANATONOMIA PATOLOGICA</option>
+                    <option value="ASESORIA JURIDICA">ASESORIA JURIDICA</option>
+                    <option value="AUDITORIA">AUDITORIA</option>
+                    <option value="BIENESTAR">BIENESTAR</option>
+                    <option value="CAAE CIRUGIA ADULTO">CAAE CIRUGIA ADULTO</option>
+                    <option value="CAAE CARDIOLOGÍA">CAAE CARDIOLOGÍA</option>
+                    <option value="CAAE CIRUGIA INFANTIL">CAAE CIRUGIA INFANTIL</option>
+                    <option value="CAAE CONSULTA GINECOLOGICA OBSTETRICIA/FAR">CAAE CONSULTA GINECOLOGICA OBSTETRICIA/FAR</option>
+                    <option value="CAAE CUIDADO PALEATIVO">CAAE CUIDADO PALEATIVO</option>
+                    <option value="CAAE DERMATOLOGÍA">CAAE DERMATOLOGÍA</option>
+                    <option value="CAAE ELECTROENCEFALOGRAFIA">CAAE ELECTROENCEFALOGRAFIA</option>
+                    <option value="CAAE HEMATO-ONCOLOGÍA">CAAE HEMATO-ONCOLOGÍA</option>
+                    <option value="CAAE KINESIOLOGÍA">CAAE KINESIOLOGÍA</option>
+                    <option value="CAAE MEDICINA">CAAE MEDICINA</option>
+                    <option value="CAAE NEONATOLOGÍA">CAAE NEONATOLOGÍA</option>
+                    <option value="CAAE NEUROLOGÍA">CAAE NEUROLOGÍA</option>
+                    <option value="CAAE ODONTOLOGÍA">CAAE ODONTOLOGÍA</option>
+                    <option value="CAAE OFTALMOLOGÍA">CAAE OFTALMOLOGÍA</option>
+                    <option value="CAAE PATOLOGÍA MAMARIA">CAAE PATOLOGÍA MAMARIA</option>
+                    <option value="CAAE PEDIATRÍA">CAAE PEDIATRÍA</option>
+                    <option value="CAAE PSIQUIATRÍA">CAAE PSIQUIATRÍA</option>
+                    <option value="CAAE">CAAE</option>
+                    <option value="CAAE TOMA DE MUESTRA">CAAE TOMA DE MUESTRA</option>
+                    <option value="CAAE TRAUMATOLOGÍA Y ORTOPEDIA">CAAE TRAUMATOLOGÍA Y ORTOPEDIA</option>
+                    <option value="CAAE UROLOGÍA">CAAE UROLOGÍA</option>
+                    <option value="CALIDAD DE VIDA">CALIDAD DE VIDA</option>
+                    <option value="CALIDAD Y SEGURIDAD DEL PACIENTE">CALIDAD Y SEGURIDAD DEL PACIENTE</option>
+                    <option value="CAPACITACIÓN">CAPACITACIÓN</option>
+                    <option value="CIRUGÍA ADULTO">CIRUGÍA ADULTO</option>
+                    <option value="CIRUGÍA INFANTIL">CIRUGÍA INFANTIL</option>
+                    <option value="CONTABILIDAD Y FINANZAS">CONTABILIDAD Y FINANZAS</option>
+                    <option value="CENTRO ESCOLAR">CENTRO ESCOLAR</option>
+                    <option value="DIALISIS">DIALISIS</option>
+                    <option value="CAE">CAE</option>
+                    <option value="EQUIPOS MEDICOS">EQUIPOS MEDICOS</option>
+                    <option value="ESTERILIZACION">ESTERILIZACION</option>
+                    <option value="FACTURACIÓN Y COBRANZAS">FACTURACIÓN Y COBRANZAS</option>
+                    <option value="FARMACIA">FARMACIA</option>
+                    <option value="FARMACIA AMBULATORIA">FARMACIA AMBULATORIA</option>
+                    <option value="FARMACIA HOSPITALIZADOS">FARMACIA HOSPITALIZADOS</option>
+                    <option value="GES">GES</option>
+                    <option value="GESTION CLINICA Y FINANCIERA GRD">GESTION CLINICA Y FINANCIERA GRD</option>
+                    <option value="GINECOLOGÍA">GINECOLOGÍA</option>
+                    <option value="GINECOLOGÍA ALTO RIESGO">GINECOLOGÍA ALTO RIESGO</option>
+                    <option value="HEMATO-ONCOLOGÍA">HEMATO-ONCOLOGÍA</option>
+                    <option value="HOSPITALIZACIÓN DOMICILIARIA">HOSPITALIZACIÓN DOMICILIARIA</option>
+                    <option value="IMAGENOLOGÍA">IMAGENOLOGÍA</option>
+                    <option value="INFECTOLOGÍA">INFECTOLOGÍA</option>
+                    <option value="INFORMATICA">INFORMATICA</option>
+                    <option value="INTERMEDIO ADULTO">INTERMEDIO ADULTO</option>
+                    <option value="INTERMEDIO INFANTIL">INTERMEDIO INFANTIL</option>
+                    <option value="INTERMEDIO NEONATAL">INTERMEDIO NEONATAL</option>
+                    <option value="KINESIOLOGÍA">KINESIOLOGÍA</option>
+                    <option value="LABORATORIO CLINICO">LABORATORIO CLINICO</option>
+                    <option value="MEDICINA">MEDICINA</option>
+                    <option value="MEDICINA FISICA Y REHABILITACIONAL">MEDICINA FISICA Y REHABILITACIONAL</option>
+                    <option value="MEDICINA TRANSFUNCIONAL">MEDICINA TRANSFUNCIONAL</option>
+                    <option value="MOVILIZACIÓN">MOVILIZACIÓN</option>
+                    <option value="NEONATOLOGÍA">NEONATOLOGÍA</option>
+                    <option value="NEUROLOGÍA">NEUROLOGÍA</option>
+                    <option value="ODONTOLOGÍA">ODONTOLOGÍA</option>
+                    <option value="OFICINA DE PARTES Y ARCHIVOS">OFICINA DE PARTES Y ARCHIVOS</option>
+                    <option value="OIRS">OIRS</option>
+                    <option value="PABELLÓN CENTRAL Y ANESTESIA">PABELLÓN CENTRAL Y ANESTESIA</option>
+                    <option value="PABELLÓN GINECO OBSTETRICO">PABELLÓN GINECO OBSTETRICO</option>
+                    <option value="PEDIATRÍA">PEDIATRÍA</option>
+                    <option value="PLANIFICACIÓN Y CONTROL">PLANIFICACIÓN Y CONTROL</option>
+                    <option value="PREVENSIÓN DE RIESGOS">PREVENSIÓN DE RIESGOS</option>
+                    <option value="PROCEDIMIENTOS ENDOSCOPICOS">PROCEDIMIENTOS ENDOSCOPICOS</option>
+                    <option value="PSIQUIATRÍA">PSIQUIATRÍA</option>
+                    <option value="PSIQUIATRÍA HOSPITALIZACIÓN">PSIQUIATRÍA HOSPITALIZACIÓN</option>
+                    <option value="PUERPERIO">PUERPERIO</option>
+                    <option value="RECAUDACIÓN">RECAUDACIÓN</option>
+                    <option value="RECIEN NACIDO">RECIEN NACIDO</option>
+                    <option value="RECUPERACIÓN CENTRAL">RECUPERACIÓN CENTRAL</option>
+                    <option value="RECUPERACIÓN GINECO OBSTETRICA">RECUPERACIÓN GINECO OBSTETRICA</option>
+                    <option value="RECURSOS FISICOS">RECURSOS FISICOS</option>
+                    <option value="RELACIONES PÚBLICAS">RELACIONES PÚBLICAS</option>
+                    <option value="ROPERÍA">ROPERÍA</option>
+                    <option value="RRHH">RRHH</option>
+                    <option value="SALA CUNA">SALA CUNA</option>
+                    <option value="SALA DE PARTO">SALA DE PARTO</option>
+                    <option value="SALUD LABORAL">SALUD LABORAL</option>
+                    <option value="SAP">SAP</option>
+                    <option value="SERVICIO SOCIAL">SERVICIO SOCIAL</option>
+                    <option value="TOMA DE MUESTRAS">TOMA DE MUESTRAS</option>
+                    <option value="TRAUMATOLOGÍA Y ORTOPEDIA">TRAUMATOLOGÍA Y ORTOPEDIA</option>
+                    <option value="UCI ADULTO">UCI ADULTO</option>
+                    <option value="UCI INFANTIL">UCI INFANTIL</option>
+                    <option value="UCI NEONATAL">UCI NEONATAL</option>
+                    <option value="URGENCIA ADULTO">URGENCIA ADULTO</option>
+                    <option value="URGENCIA INFANTIL">URGENCIA INFANTIL</option>
+                    <option value="URGENCIA OBSTETRICA">URGENCIA OBSTETRICA</option>
+                    <option value="UGP">UGP</option>
+                    <option value="UROLOGÍA">UROLOGÍA</option>
+                    <option value="VACUNATORIO">VACUNATORIO</option>
+                </select>
+                <input type="text" id="ev_piso" name="ev_piso" placeholder="Ingresar piso y torre" >   
+
+                <label for="ev_ambito">ÁMBITO DEL REPORTE</label>
+                <select name="ev_ambito" id="ev_ambito">
+                    <option value=""></option>
+                    <option value="ÁMBITO SEGURIDAD DE LA CIRUGÍA">ÁMBITO SEGURIDAD DE LA CIRUGÍA</option>
+                    <option value="ÁMBITO ATENCIÓN OBSTETRICA">ÁMBITO ATENCIÓN OBSTETRICA</option>
+                    <option value="ÁMBITO IAAS">ÁMBITO IAAS</option>
+                    <option value="ÁMBITO ESTERILIZACIÓN">ÁMBITO ESTERILIZACIÓN</option>
+                    <option value="ÁMBITO SEGURIDAD MEDICINA TRANSFUNCIONAL">ÁMBITO SEGURIDAD MEDICINA TRANSFUNCIONAL</option>
+                    <option value="ÁMBITO SEGURIDAD FARMACOLOGÍCA">ÁMBITO SEGURIDAD FARMACOLOGÍCA</option>
+                    <option value="ÁMBITO ATENCIÓN Y CUIDADOS DEL PACIENTE">ÁMBITO ATENCIÓN Y CUIDADOS DEL PACIENTE</option>
+                    <option value="ÁMBITO SEGURIDAD DE MUESTRAS Y EXÁMENES">ÁMBITO SEGURIDAD DE MUESTRAS Y EXÁMENES</option>
+                    <option value="ÁMBITO REGISTROS E INFORMACIÓN">ÁMBITO REGISTROS E INFORMACIÓN</option>
+                    <option value="TECNOVIGILANCIA">TECNOVIGILANCIA</option>
+                    <option value="OTROS">OTROS</option>
+                </select>
+                <input type="text" id="ev_piso_ambito" name="ev_piso_ambito" placeholder="Ingresar piso y torre" >
+
+                <label for="ev_reportar">EVENTOS A REPORTAR:</label>  
+                <textarea name="ev_reportar" id="ev_reportar" rows="5" cols="115" placeholder="Ingresar evento, piso y torre"></textarea>                 
                 
-            <label for="ev_rut">PACIENTE RUT:</label>
-            <input type="text" id="ev_rut" name="ev_rut" required size="100">
-                                
-            <label for="ev_ficha">N° FICHA CLÍNICA:</label>
-            <input type="number" id="ev_ficha" name="ev_ficha" required size="97"> 
-                  
-            <label for="nombre">FECHA:</label>
-            <input type="date" id="ev_fecha_ea" name="ev_fecha_ea">         
-                
-            <label for="ev_servicio">SERVICIO QUE REPORTA EL EVENTO:</label>
-            <select name="ev_servicio" id="lang">
-                <option value=""></option>
-                <option value="ABASTECIMIENTO BODEGA">ABASTECIMIENTO BODEGA</option>
-                <option value="ALIMENTACION Y NUTRICION">ALIMENTACION Y NUTRICION</option>
-                <option value="ANATONOMIA PATOLOGICA">ANATONOMIA PATOLOGICA</option>
-                <option value="ASESORIA JURIDICA">ASESORIA JURIDICA</option>
-                <option value="AUDITORIA">AUDITORIA</option>
-                <option value="BIENESTAR">BIENESTAR</option>
-                <option value="CAAE CIRUGIA ADULTO">CAAE CIRUGIA ADULTO</option>
-                <option value="CAAE CARDIOLOGÍA">CAAE CARDIOLOGÍA</option>
-                <option value="CAAE CIRUGIA INFANTIL">CAAE CIRUGIA INFANTIL</option>
-                <option value="CAAE CONSULTA GINECOLOGICA OBSTETRICIA/FAR">CAAE CONSULTA GINECOLOGICA OBSTETRICIA/FAR</option>
-                <option value="CAAE CUIDADO PALEATIVO">CAAE CUIDADO PALEATIVO</option>
-                <option value="CAAE DERMATOLOGÍA">CAAE DERMATOLOGÍA</option>
-                <option value="CAAE ELECTROENCEFALOGRAFIA">CAAE ELECTROENCEFALOGRAFIA</option>
-                <option value="CAAE HEMATO-ONCOLOGÍA">CAAE HEMATO-ONCOLOGÍA</option>
-                <option value="CAAE KINESIOLOGÍA">CAAE KINESIOLOGÍA</option>
-                <option value="CAAE MEDICINA">CAAE MEDICINA</option>
-                <option value="CAAE NEONATOLOGÍA">CAAE NEONATOLOGÍA</option>
-                <option value="CAAE NEUROLOGÍA">CAAE NEUROLOGÍA</option>
-                <option value="CAAE ODONTOLOGÍA">CAAE ODONTOLOGÍA</option>
-                <option value="CAAE OFTALMOLOGÍA">CAAE OFTALMOLOGÍA</option>
-                <option value="CAAE PATOLOGÍA MAMARIA">CAAE PATOLOGÍA MAMARIA</option>
-                <option value="CAAE PEDIATRÍA">CAAE PEDIATRÍA</option>
-                <option value="CAAE PSIQUIATRÍA">CAAE PSIQUIATRÍA</option>
-                <option value="CAAE">CAAE</option>
-                <option value="CAAE TOMA DE MUESTRA">CAAE TOMA DE MUESTRA</option>
-                <option value="CAAE TRAUMATOLOGÍA Y ORTOPEDIA">CAAE TRAUMATOLOGÍA Y ORTOPEDIA</option>
-                <option value="CAAE UROLOGÍA">CAAE UROLOGÍA</option>
-                <option value="CALIDAD DE VIDA">CALIDAD DE VIDA</option>
-                <option value="CALIDAD Y SEGURIDAD DEL PACIENTE">CALIDAD Y SEGURIDAD DEL PACIENTE</option>
-                <option value="CAPACITACIÓN">CAPACITACIÓN</option>
-                <option value="CIRUGÍA ADULTO">CIRUGÍA ADULTO</option>
-                <option value="CIRUGÍA INFANTIL">CIRUGÍA INFANTIL</option>
-                <option value="CONTABILIDAD Y FINANZAS">CONTABILIDAD Y FINANZAS</option>
-                <option value="CENTRO ESCOLAR">CENTRO ESCOLAR</option>
-                <option value="DIALISIS">DIALISIS</option>
-                <option value="CAE">CAE</option>
-                <option value="EQUIPOS MEDICOS">EQUIPOS MEDICOS</option>
-                <option value="ESTERILIZACION">ESTERILIZACION</option>
-                <option value="FACTURACIÓN Y COBRANZAS">FACTURACIÓN Y COBRANZAS</option>
-                <option value="FARMACIA">FARMACIA</option>
-                <option value="FARMACIA AMBULATORIA">FARMACIA AMBULATORIA</option>
-                <option value="FARMACIA HOSPITALIZADOS">FARMACIA HOSPITALIZADOS</option>
-                <option value="GES">GES</option>
-                <option value="GESTION CLINICA Y FINANCIERA GRD">GESTION CLINICA Y FINANCIERA GRD</option>
-                <option value="GINECOLOGÍA">GINECOLOGÍA</option>
-                <option value="GINECOLOGÍA ALTO RIESGO">GINECOLOGÍA ALTO RIESGO</option>
-                <option value="HEMATO-ONCOLOGÍA">HEMATO-ONCOLOGÍA</option>
-                <option value="HOSPITALIZACIÓN DOMICILIARIA">HOSPITALIZACIÓN DOMICILIARIA</option>
-                <option value="IMAGENOLOGÍA">IMAGENOLOGÍA</option>
-                <option value="INFECTOLOGÍA">INFECTOLOGÍA</option>
-                <option value="INFORMATICA">INFORMATICA</option>
-                <option value="INTERMEDIO ADULTO">INTERMEDIO ADULTO</option>
-                <option value="INTERMEDIO INFANTIL">INTERMEDIO INFANTIL</option>
-                <option value="INTERMEDIO NEONATAL">INTERMEDIO NEONATAL</option>
-                <option value="KINESIOLOGÍA">KINESIOLOGÍA</option>
-                <option value="LABORATORIO CLINICO">LABORATORIO CLINICO</option>
-                <option value="MEDICINA">MEDICINA</option>
-                <option value="MEDICINA FISICA Y REHABILITACIONAL">MEDICINA FISICA Y REHABILITACIONAL</option>
-                <option value="MEDICINA TRANSFUNCIONAL">MEDICINA TRANSFUNCIONAL</option>
-                <option value="MOVILIZACIÓN">MOVILIZACIÓN</option>
-                <option value="NEONATOLOGÍA">NEONATOLOGÍA</option>
-                <option value="NEUROLOGÍA">NEUROLOGÍA</option>
-                <option value="ODONTOLOGÍA">ODONTOLOGÍA</option>
-                <option value="OFICINA DE PARTES Y ARCHIVOS">OFICINA DE PARTES Y ARCHIVOS</option>
-                <option value="OIRS">OIRS</option>
-                <option value="PABELLÓN CENTRAL Y ANESTESIA">PABELLÓN CENTRAL Y ANESTESIA</option>
-                <option value="PABELLÓN GINECO OBSTETRICO">PABELLÓN GINECO OBSTETRICO</option>
-                <option value="PEDIATRÍA">PEDIATRÍA</option>
-                <option value="PLANIFICACIÓN Y CONTROL">PLANIFICACIÓN Y CONTROL</option>
-                <option value="PREVENSIÓN DE RIESGOS">PREVENSIÓN DE RIESGOS</option>
-                <option value="PROCEDIMIENTOS ENDOSCOPICOS">PROCEDIMIENTOS ENDOSCOPICOS</option>
-                <option value="PSIQUIATRÍA">PSIQUIATRÍA</option>
-                <option value="PSIQUIATRÍA HOSPITALIZACIÓN">PSIQUIATRÍA HOSPITALIZACIÓN</option>
-                <option value="PUERPERIO">PUERPERIO</option>
-                <option value="RECAUDACIÓN">RECAUDACIÓN</option>
-                <option value="RECIEN NACIDO">RECIEN NACIDO</option>
-                <option value="RECUPERACIÓN CENTRAL">RECUPERACIÓN CENTRAL</option>
-                <option value="RECUPERACIÓN GINECO OBSTETRICA">RECUPERACIÓN GINECO OBSTETRICA</option>
-                <option value="RECURSOS FISICOS">RECURSOS FISICOS</option>
-                <option value="RELACIONES PÚBLICAS">RELACIONES PÚBLICAS</option>
-                <option value="ROPERÍA">ROPERÍA</option>
-                <option value="RRHH">RRHH</option>
-                <option value="SALA CUNA">SALA CUNA</option>
-                <option value="SALA DE PARTO">SALA DE PARTO</option>
-                <option value="SALUD LABORAL">SALUD LABORAL</option>
-                <option value="SAP">SAP</option>
-                <option value="SERVICIO SOCIAL">SERVICIO SOCIAL</option>
-                <option value="TOMA DE MUESTRAS">TOMA DE MUESTRAS</option>
-                <option value="TRAUMATOLOGÍA Y ORTOPEDIA">TRAUMATOLOGÍA Y ORTOPEDIA</option>
-                <option value="UCI ADULTO">UCI ADULTO</option>
-                <option value="UCI INFANTIL">UCI INFANTIL</option>
-                <option value="UCI NEONATAL">UCI NEONATAL</option>
-                <option value="URGENCIA ADULTO">URGENCIA ADULTO</option>
-                <option value="URGENCIA INFANTIL">URGENCIA INFANTIL</option>
-                <option value="URGENCIA OBSTETRICA">URGENCIA OBSTETRICA</option>
-                <option value="UGP">UGP</option>
-                <option value="UROLOGÍA">UROLOGÍA</option>
-                <option value="VACUNATORIO">VACUNATORIO</option>
-            </select>
-            <input type="text" id="ev_piso" name="ev_piso" placeholder="Ingresar piso y torre" >   
+                <h3>SEVERIDAD </h3>
+                <h4>Incidente:</h4>
+                <p>Suceso adverso que no llega a provocar daño al paciente.</p>
+                <h4>Evento adverso:</h4>
+                <p>Situación o acontecimiento inesperado, que tiene, o puede tener, consecuencias negativas para el paciente y que no está relacionado con el curso natural de su enfermedad 
+                <h4>Evento centinela:</h4>
+                <p>Suceso inesperado que puede producir la muerte o serias secuelas físicas o psicológicas, o el riesgo potencial de que este ocurra</p>
 
-            <label for="ev_ambito">ÁMBITO DEL REPORTE</label>
-            <select name="ev_ambito" id="ev_ambito">
-                <option value=""></option>
-                <option value="ÁMBITO SEGURIDAD DE LA CIRUGÍA">ÁMBITO SEGURIDAD DE LA CIRUGÍA</option>
-                <option value="ÁMBITO ATENCIÓN OBSTETRICA">ÁMBITO ATENCIÓN OBSTETRICA</option>
-                <option value="ÁMBITO IAAS">ÁMBITO IAAS</option>
-                <option value="ÁMBITO ESTERILIZACIÓN">ÁMBITO ESTERILIZACIÓN</option>
-                <option value="ÁMBITO SEGURIDAD MEDICINA TRANSFUNCIONAL">ÁMBITO SEGURIDAD MEDICINA TRANSFUNCIONAL</option>
-                <option value="ÁMBITO SEGURIDAD FARMACOLOGÍCA">ÁMBITO SEGURIDAD FARMACOLOGÍCA</option>
-                <option value="ÁMBITO ATENCIÓN Y CUIDADOS DEL PACIENTE">ÁMBITO ATENCIÓN Y CUIDADOS DEL PACIENTE</option>
-                <option value="ÁMBITO SEGURIDAD DE MUESTRAS Y EXÁMENES">ÁMBITO SEGURIDAD DE MUESTRAS Y EXÁMENES</option>
-                <option value="ÁMBITO REGISTROS E INFORMACIÓN">ÁMBITO REGISTROS E INFORMACIÓN</option>
-                <option value="TECNOVIGILANCIA">TECNOVIGILANCIA</option>
-                <option value="OTROS">OTROS</option>
-            </select>
-            <input type="text" id="ev_piso_ambito" name="ev_piso_ambito" placeholder="Ingresar piso y torre" >
+                <label for="ev_descripcion">DESCRIPCIÓN:</label>  
+                <textarea name="ev_descripcion" id="ev_descripcion" placeholder="Ingresar descripción del evento ocurrido, sin especificar nombres ni datos no relacionados, solo describir lo sucedido" rows="5" cols="115"></textarea>                   
 
-            <label for="ev_reportar">EVENTOS A REPORTAR:</label>  
-            <textarea name="ev_reportar" id="ev_reportar" rows="5" cols="115" placeholder="Ingresar evento, piso y torre"></textarea>                 
-            
-            <h3>SEVERIDAD </h3>
-            <h4>Incidente:</h4>
-            <p>Suceso adverso que no llega a provocar daño al paciente.</p>
-            <h4>Evento adverso:</h4>
-            <p>Situación o acontecimiento inesperado, que tiene, o puede tener, consecuencias negativas para el paciente y que no está relacionado con el curso natural de su enfermedad 
-            <h4>Evento centinela:</h4>
-            <p>Suceso inesperado que puede producir la muerte o serias secuelas físicas o psicológicas, o el riesgo potencial de que este ocurra</p>
+                <label for="ev_acciones">ACCIONES:</label>
+                <textarea name="ev_acciones" id="ev_acciones" placeholder="Ingresar las acciones realizadas durante o después del evento" rows="5" cols="115"></textarea>                   
+                    
+                <label for="ev_daño">¿Generó daño al usuario?</label>    
+                <div class="daño-usuario">
+                    <input type="radio" id="ev_daño" name="ev_daño"  value="Sí">Sí <br>
+                    <input type="radio" id="ev_daño" name="ev_daño"  value="No"> No <br>
+                    <textarea name="ev_daño" id="ev_daño" placeholder="En caso de que corresponda, describa daño" rows="5" cols="115"></textarea>
+                </div>
 
-            <label for="ev_descripcion">DESCRIPCIÓN:</label>  
-            <textarea name="ev_descripcion" id="ev_descripcion" placeholder="Ingresar descripción del evento ocurrido, sin especificar nombres ni datos no relacionados, solo describir lo sucedido" rows="5" cols="115"></textarea>                   
-
-            <label for="ev_acciones">ACCIONES:</label>
-            <textarea name="ev_acciones" id="ev_acciones" placeholder="Ingresar las acciones realizadas durante o después del evento" rows="5" cols="115"></textarea>                   
-                
-            <label for="ev_daño">¿Generó daño al usuario?</label>    
-            <div class="daño-usuario">
-                <input type="radio" id="ev_daño" name="ev_daño"  value="Sí">Sí <br>
-                <input type="radio" id="ev_daño" name="ev_daño"  value="No"> No <br>
-                <textarea name="ev_daño" id="ev_daño" placeholder="En caso de que corresponda, describa daño" rows="5" cols="115"></textarea>
-            </div>
-
-            <label for="ev_notificacion">¿Se notifica a usuario, tutor legal o familiar responsable del evento?</label>
-            <div class="ev_notificaciones">
-                <input type="radio" id="ev_notificacion" name="ev_notificacion" value="Sí"> Sí <br>
-                <input type="radio" id="ev_notificacion" name="ev_notificacion" value="No"> No <br>                   
-            </div>
-                
-            <div class="btn-1">
-                <input type="submit" name="enviar" value="Registrar">
-                <input type="reset" value="Limpiar">
-            </div>
-        </form>
-    </div>  
-
+                <label for="ev_notificacion">¿Se notifica a usuario, tutor legal o familiar responsable del evento?</label>
+                <div class="ev_notificaciones">
+                    <input type="radio" id="ev_notificacion" name="ev_notificacion" value="Sí"> Sí <br>
+                    <input type="radio" id="ev_notificacion" name="ev_notificacion" value="No"> No <br>                   
+                </div>
+                    
+                <div class="btn-1">
+                    <input type="submit" name="enviar" value="Registrar">
+                    <input type="reset" value="Limpiar">
+                </div>
+            </form>
+        </div>  
+    </div>
 </body>
 </html>
