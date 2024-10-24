@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-align: none;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.header {
+  display: flex;
+  position: relative;
+  min-height: 100vh;
+  align-items: center;
+}
+
+.menu {
+  position: relative;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header-texto {
+  width: 100%;
+}
+
+.header-texto h1 {
+  font-size: 50px;
+  color: black;
+  line-height: 80px;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 50px;
+  font-family: 'Roboto Condensed', sans-serif;
+}
+
+.btn-eventos {
+  display: inline-block;
+  padding: 13px 20px;
+  border-radius: 25px;
+  text-transform: uppercase;
+  color: #FFFF;
+  background-color: #3390FF;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  font-family: 'Roboto Condensed', sans-serif;
+}
+
+.btn-eventos:hover {
+  color: black;
+}
+
+.btn-notificaciones {
+  display: inline-block;
+  padding: 13px 20px;
+  border-radius: 25px;
+  text-transform: uppercase;
+  color: #FFFF;
+  background-color: #3390FF;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  font-family: 'Roboto Condensed', sans-serif;
+}
+
+.btn-notificaciones:hover {
+  color: black;
+}
+
+body {
+  width: 950px;
+  margin: 0 auto;
+  background-color: #ffff;
+  padding: 0 10px 10px 10px;
+  border: px solid black;
+  font-family: 'Roboto Condensed', sans-serif;
+}
+
+h1 {
+  margin: 40px;
+  padding: 20px 0;
+  color: #000000;
+  font-family: 'Roboto Condensed', sans-serif;
+}
+
+
+
+
