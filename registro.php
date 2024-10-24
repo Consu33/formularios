@@ -142,10 +142,12 @@ if ($formulario === "eventos_adversos") {
     $consulta_evento->bind_param("ssssssssssssss", $ev_rut, $ev_ficha, $ev_fecha_ea, $ev_servicio, $ev_piso, $ev_reporta_ocurrencia, $ev_piso_ambito, $ev_ambito,  $ev_reportar_evento, $ev_descripcion, $ev_acciones, $ev_daño, $ev_daño_descripcion, $ev_notificacion);
 
     if ($consulta_evento->execute()) {
-        header("Location: http://localhost/formularios_hospital/menu.html");
-        exit;
+        echo "<script>
+            alert('Formulario ingresado de forma exitosa');
+            window.location.href = 'http://localhost/formularios_hospital/menu.html';
+        </script>";
     } else {
-        echo "Error al insertar datos en evento adversos: " . $consulta_evento->error;
+        echo "<script>alert('Error al insertar datos en evento adversos: " . $consulta_evento->error . "');</script>";
     }
 
     $consulta_evento->close();
@@ -184,10 +186,12 @@ if ($formulario === "eventos_adversos") {
     $consulta_paciente->bind_param("sssisssssssssssssssssss", $nombre, $apellido, $sexo, $edad, $diagnostico_ingreso, $servicio_clinico, $sala, $hora_caida, $dia_caida, $lesiones, $ubicacion_lesion, $descripcion_caida, $sitio_caida, $equipo_mobiliario, $otro_equipo, $entorno, $entorno_timbre, $entorno_iluminacion, $entorno_espacio, $actividad, $medicamentos_paciente, $estado_paciente, $observaciones);
 
     if ($consulta_paciente->execute()) {
-        header("Location: http://localhost/formularios_hospital/menu.html");
-        exit;
+        echo "<script>
+            alert('Formulario ingresado de forma exitosa');
+            window.location.href = 'http://localhost/formularios_hospital/menu.html';
+        </script>";
     } else {
-        echo "Error al insertar datos en notificaciones caida: " . $consulta_paciente->error;
+        echo "<script>alert('Error al insertar datos en notificaciones de caída: " . $consulta_paciente->error . "');</script>";
     }
 
     $consulta_paciente->close();
@@ -199,6 +203,8 @@ if ($formulario === "eventos_adversos") {
 $conexion->close();
 
 ?>
+
+
 
 
 
