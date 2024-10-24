@@ -193,22 +193,35 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            const fechaInput = document.getElementById('dia_caida');
-            const hoy = new Date().toISOString().split('T')[0];
+            const fechaReporte = document.getElementById('dia_caida');
+            const fechaInforme = document.getElementById('fecha');
+            
             
             // Establece la fecha mínima y máxima
+            const hoy = new Date().toISOString().split('T')[0];
             const ayer = new Date();
             ayer.setDate(ayer.getDate() - 10);
             const fechaAyer = ayer.toISOString().split('T')[0];
 
-            fechaInput.setAttribute('min', fechaAyer);
-            fechaInput.setAttribute('max', hoy);
+            // Establece el rango para ambos inputs
+            fechaReporte.setAttribute('min', fechaAyer);
+            fechaReporte.setAttribute('max', hoy);
+
+            fechaInforme.setAttribute('min', fechaAyer);
+            fechaInforme.setAttribute('max', hoy);
 
             // Validación adicional en el cambio de valor
-            fechaInput.addEventListener('change', function () {
-            if (fechaInput.value !== hoy && fechaInput.value !== fechaAyer) {
+            fechaReporte.addEventListener('change', function () {
+            if (fechaReporte.value !== hoy && fechaReporte.value !== fechaAyer) {
                 alert('Solo se permite seleccionar la fecha de ayer o hoy.');
-                fechaInput.value = hoy;
+                fechaReporte.value = hoy;
+                }
+            });
+
+            fechaInforme.addEventListener('change', function () {
+            if (fechaInforme.value !== hoy && fechaInforme.value !== fechaAyer) {
+                alert('Solo se permite seleccionar la fecha de ayer o hoy.');
+                fechaInforme.value = hoy;
                 }
             });
         });
@@ -216,6 +229,4 @@
 
 </body>
 </html>
-
-
 
