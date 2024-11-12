@@ -1,6 +1,6 @@
 <?php
 
-//require 'vendor/autoload.php'; // Autoload de Composer
+require 'vendor/autoload.php'; // Autoload de Composer
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
@@ -22,7 +22,7 @@ if ($conexion->connect_errno) {
 }
 
 // Función para enviar correo para evento adverso
-function enviarCorreoEventoAdverso($ev_rut, $ev_ficha, $ev_fecha_ea, $ev_servicio, $ev_piso, $ev_reporta_ocurrencia, $ev_piso_ambito, $ev_ambito,  $ev_reportar_evento, $ev_descripcion, $ev_acciones, $ev_daño, $ev_daño_descripcion, $ev_notificacion) {
+function enviarCorreoEventoAdverso($ev_rut, $ev_ficha, $ev_fecha_ea, $ev_servicio, $ev_piso, $ev_torre, $ev_reporta_ocurrencia, $ev_piso_ambito, $ev_torre_ambito, $ev_ambito,  $ev_reportar_evento, $ev_descripcion, $ev_acciones, $ev_daño, $ev_daño_descripcion, $ev_notificacion) {
     $mail = new PHPMailer(true);
     try {
         // Configuración del servidor de correo
@@ -30,7 +30,7 @@ function enviarCorreoEventoAdverso($ev_rut, $ev_ficha, $ev_fecha_ea, $ev_servici
         $mail->Host = 'smtp.office365.com';
         $mail->SMTPAuth = true;
         $mail->Username = 'manuel.arrano@redsalud.gob.cl';
-        $mail->Password = 'Jar46967'; 
+        $mail->Password = 'Joq30830'; 
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
         $mail->Port = 587;
 
@@ -46,9 +46,11 @@ function enviarCorreoEventoAdverso($ev_rut, $ev_ficha, $ev_fecha_ea, $ev_servici
         $mail->Body .= "Ficha: $ev_ficha<br>";
         $mail->Body .= "Fecha: $ev_fecha_ea<br>";
         $mail->Body .= "Servicio que reporta: $ev_servicio<br>";
-        $mail->Body .= "Piso: $ev_piso<br>";
+        $mail->Body .= "Piso/Evento: $ev_piso<br>";
+        $mail->Body .= "Torre/Evento: $ev_torre<br>";
         $mail->Body .= "Servicio de ocurrencia: $ev_reporta_ocurrencia<br>";
         $mail->Body .= "Piso/Ambito: $ev_piso_ambito<br>";
+        $mail->Body .= "Torre/Ambito: $ev_torre_ambito<br>";
         $mail->Body .= "Ámbito: $ev_ambito<br>";        
         $mail->Body .= "Eventos a reportar: $ev_reportar_evento<br>";
         $mail->Body .= "Descripción: $ev_descripcion<br>";
@@ -73,7 +75,7 @@ function enviarCorreoNotificacionCaida($nombre, $apellido, $sexo, $edad, $diagno
         $mail->Host = 'smtp.office365.com';
         $mail->SMTPAuth = true;
         $mail->Username = 'manuel.arrano@redsalud.gob.cl';
-        $mail->Password = 'Jar46967'; 
+        $mail->Password = 'Joq30830'; 
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
         $mail->Port = 587;
 
@@ -120,15 +122,17 @@ $formulario = $_POST['formulario'] ?? '';
 
 // Declaración variables tabla evento_adversos
 if ($formulario === "eventos_adversos") {
-    // Declaración de variables de la tabla eventos_adversos
+    
     $ev_rut = $_POST['ev_rut'] ?? '';
     $ev_ficha = $_POST['ev_ficha'] ?? '';
     $ev_fecha_ea = $_POST['ev_fecha_ea'];
     $ev_servicio = $_POST['ev_servicio'] ?? '';
     $ev_piso = $_POST['ev_piso'] ?? '';
+    $ev_torre = $_POST['ev_torre'] ?? '';
     $ev_reporta_ocurrencia = $_POST['ev_reporta_ocurrencia'] ?? '';
     $ev_piso_ambito = $_POST['ev_piso_ambito'] ?? '';
-    $ev_ambito = $_POST['ev_ambito'] ?? '';    
+    $ev_ambito = $_POST['ev_ambito'] ?? ''; 
+    $ev_torre_ambito = $_POST['ev_torre_ambito'] ?? '';   
     $ev_reportar_evento = $_POST['ev_reportar_evento'] ?? '';
     $ev_descripcion = $_POST['ev_descripcion'] ?? '';
     $ev_acciones = $_POST['ev_acciones'] ?? '';
@@ -137,14 +141,14 @@ if ($formulario === "eventos_adversos") {
     $ev_notificacion = $_POST['ev_notificacion'] ?? '';
 
     // Consulta para la tabla eventos_adversos
-    $consulta_evento = $conexion->prepare("INSERT INTO evento_adversos (ev_rut, ev_ficha, ev_fecha_ea, ev_servicio, ev_piso, ev_reporta_ocurrencia, ev_piso_ambito, ev_ambito, ev_reportar_evento, ev_descripcion, ev_acciones, ev_daño, ev_daño_descripcion, ev_notificacion) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+    $consulta_evento = $conexion->prepare("INSERT INTO evento_adversos (ev_rut, ev_ficha, ev_fecha_ea, ev_servicio, ev_piso, ev_torre, ev_reporta_ocurrencia, ev_piso_ambito, ev_torre_ambito, ev_ambito, ev_reportar_evento, ev_descripcion, ev_acciones, ev_daño, ev_daño_descripcion, ev_notificacion) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 
-    $consulta_evento->bind_param("ssssssssssssss", $ev_rut, $ev_ficha, $ev_fecha_ea, $ev_servicio, $ev_piso, $ev_reporta_ocurrencia, $ev_piso_ambito, $ev_ambito,  $ev_reportar_evento, $ev_descripcion, $ev_acciones, $ev_daño, $ev_daño_descripcion, $ev_notificacion);
+    $consulta_evento->bind_param("ssssssssssssssss", $ev_rut, $ev_ficha, $ev_fecha_ea, $ev_servicio, $ev_piso, $ev_torre, $ev_reporta_ocurrencia, $ev_piso_ambito, $ev_torre_ambito, $ev_ambito,  $ev_reportar_evento, $ev_descripcion, $ev_acciones, $ev_daño, $ev_daño_descripcion, $ev_notificacion);
 
     if ($consulta_evento->execute()) {
         echo "<script>
             alert('Formulario ingresado de forma exitosa');
-            window.location.href = 'http://localhost/formularios_hospital/menu.html';
+            window.location.href = 'http://localhost:8080/formularios_hospital/menu.html';
         </script>";
     } else {
         echo "<script>alert('Error al insertar datos en evento adversos: " . $consulta_evento->error . "');</script>";
@@ -152,7 +156,7 @@ if ($formulario === "eventos_adversos") {
 
     $consulta_evento->close();
 
-    enviarCorreoEventoAdverso($ev_rut, $ev_ficha, $ev_fecha_ea, $ev_servicio, $ev_reporta_ocurrencia, $ev_piso, $ev_piso_ambito, $ev_ambito, $ev_reportar_evento, $ev_descripcion, $ev_acciones, $ev_daño, $ev_daño_descripcion, $ev_notificacion);
+    enviarCorreoEventoAdverso($ev_rut, $ev_ficha, $ev_fecha_ea, $ev_servicio, $ev_reporta_ocurrencia, $ev_piso, $ev_torre, $ev_piso_ambito, $ev_torre_ambito, $ev_ambito, $ev_reportar_evento, $ev_descripcion, $ev_acciones, $ev_daño, $ev_daño_descripcion, $ev_notificacion);
     
 } elseif ($formulario === "notificaciones_caida") {
     // Declaración de variables de la tabla notificaciones_caida
@@ -188,7 +192,7 @@ if ($formulario === "eventos_adversos") {
     if ($consulta_paciente->execute()) {
         echo "<script>
             alert('Formulario ingresado de forma exitosa');
-            window.location.href = 'http://localhost/formularios_hospital/menu.html';
+            window.location.href = 'http://localhost:8080/formularios_hospital/menu.html';
         </script>";
     } else {
         echo "<script>alert('Error al insertar datos en notificaciones de caída: " . $consulta_paciente->error . "');</script>";
@@ -203,12 +207,3 @@ if ($formulario === "eventos_adversos") {
 $conexion->close();
 
 ?>
-
-
-
-
-
-
-
-
-
