@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -70,16 +71,18 @@
                     <input type="date" class="formulario__input"  id="dia_caida" name="dia_caida"> 
                     
                 
-                    <h4>Lesión como consecuencia de caída:</h4>            
-                    <input type="checkbox" name="lesiones[]" value="Abrasión/Erosión">Abrasión/Erosión<br>                
-                    <input type="checkbox" name="lesiones[]" value="Fractura">Fractura<br>                
-                    <input type="checkbox" name="lesiones[]" value="Esguince">Esguince<br>         
-                    <input type="checkbox" name="lesiones[]" value="Corte/Contusión">Corte/Contusión<br>                 
-                    <input type="checkbox" name="lesiones[]" value="Hematoma">Hematoma<br>                
-                    <input type="checkbox" name="lesiones[]" value="Perdida de conciencia">Perdida de conciencia<br>                     
-                    <input type="checkbox" name="lesiones[]" value="Sin lesión">Sin lesión<br>                
-                    <input type="checkbox" name="lesiones[]" value="Muerte">Muerte<br>                
-                    <input type="checkbox" name="lesiones[]" value="Otras">Otras <br>    
+                    <fieldset>
+                        <legend>Lesión como consecuencia de caída:</legend>                              
+                        <input type="checkbox" name="lesiones[]" value="Abrasión/Erosión">Abrasión/Erosión<br>                
+                        <input type="checkbox" name="lesiones[]" value="Fractura">Fractura<br>                
+                        <input type="checkbox" name="lesiones[]" value="Esguince">Esguince<br>         
+                        <input type="checkbox" name="lesiones[]" value="Corte/Contusión">Corte/Contusión<br>                 
+                        <input type="checkbox" name="lesiones[]" value="Hematoma">Hematoma<br>                
+                        <input type="checkbox" name="lesiones[]" value="Perdida de conciencia">Perdida de conciencia<br>                     
+                        <input type="checkbox" name="lesiones[]" value="Sin lesión">Sin lesión<br>                
+                        <input type="checkbox" name="lesiones[]" value="Muerte">Muerte<br>                
+                        <input type="checkbox" name="lesiones[]" value="Otras">Otras <br>   
+                    </fieldset> 
                 
                     <h4>Localización de la Lesión</h4>                
                     <input type="text" class="formulario__input" size="100" id="ubicación_Lesión" name="ubicacion_lesion" placeholder="Ubicación de Lesión">                
@@ -87,93 +90,101 @@
                     <h4>Descripción Breve de la Caída</h4>                
                     <input type="text" class="formulario__input" size="100" id="descripcion_caida" name="descripcion_caida" placeholder="Descripción caida">                
                     
-                    <h4>1 - Lugar: Marque una casilla correspondiente:</h4>
-                    <input type="checkbox" name="sitio_caida[]" value="Habitación">Habitación<br>                
-                    <input type="checkbox" name="sitio_caida[]" value="Recinto Baño">Recinto Baño<br> 
-                    <input type="checkbox" name="sitio_caida[]" value="Pasillo">Pasillo<br>                 
-                    <input type="checkbox" name="sitio_caida[]" value="Escalera ">Escalera<br>                                
-                    
-                    <h4>2 - Equipo - Mobiliario: Marque una casilla que corresponda</h4>       
-                    <input type="checkbox" name="equipo_mobiliario[]" value="Cama">Cama<br>                 
-                    <input type="checkbox" name="equipo_mobiliario[]" value="Camilla">Camilla<br>                 
-                    <input type="checkbox" name="equipo_mobiliario[]" value="Silla">Silla<br>                 
-                    <input type="checkbox" name="equipo_mobiliario[]" value="Silla de Ruedas">Silla de Ruedas<br>                 
-                    <input type="checkbox" name="equipo_mobiliario[]" value="Existe Barandas">Existe Barandas<br>                
-                    <input type="checkbox" name="equipo_mobiliario[]" value="Barandas Arriba">Barandas Arriba<br>                
-                    <input type="checkbox" name="equipo_mobiliario[]" value="Frenos Puestos">Frenos Puestos<br>                 
-                    <input type="checkbox" name="equipo_mobiliario[]" value="Taza WC">Taza WC<br>                
-                    <input type="checkbox" name="equipo_mobiliario[]" value="Ducha">Ducha<br>                
-                    <input type="checkbox" name="equipo_mobiliario[]" value="Barras Apoyo">Barras Apoyo<br>                
-                    
-                    <h4>Otros?:</h4> 
+                    <fieldset>
+                        <legend>1 - Lugar: Marque una casilla correspondiente:</legend>
+                        <input type="checkbox" name="sitio_caida[]" value="Habitación">Habitación<br>                
+                        <input type="checkbox" name="sitio_caida[]" value="Recinto Baño">Recinto Baño<br> 
+                        <input type="checkbox" name="sitio_caida[]" value="Pasillo">Pasillo<br>                 
+                        <input type="checkbox" name="sitio_caida[]" value="Escalera ">Escalera<br> 
+                    </fieldset>                               
+                    <fieldset>
+                        <legend>2 - Equipo - Mobiliario: Marque una casilla que corresponda</legend>                          
+                        <input type="checkbox" name="equipo_mobiliario[]" value="Cama">Cama<br>                 
+                        <input type="checkbox" name="equipo_mobiliario[]" value="Camilla">Camilla<br>                 
+                        <input type="checkbox" name="equipo_mobiliario[]" value="Silla">Silla<br>                 
+                        <input type="checkbox" name="equipo_mobiliario[]" value="Silla de Ruedas">Silla de Ruedas<br>                 
+                        <input type="checkbox" name="equipo_mobiliario[]" value="Existe Barandas">Existe Barandas<br>                
+                        <input type="checkbox" name="equipo_mobiliario[]" value="Barandas Arriba">Barandas Arriba<br>                
+                        <input type="checkbox" name="equipo_mobiliario[]" value="Frenos Puestos">Frenos Puestos<br>                 
+                        <input type="checkbox" name="equipo_mobiliario[]" value="Taza WC">Taza WC<br>                
+                        <input type="checkbox" name="equipo_mobiliario[]" value="Ducha">Ducha<br>                
+                        <input type="checkbox" name="equipo_mobiliario[]" value="Barras Apoyo">Barras Apoyo<br>                
+                        
+                        <h4>Otros?:</h4> 
                     <input type="text" class="formulario__input" size="93"  id="otro_equipo" name = "otro_equipo" placeholder="Describa otro equipo"> 
-                                
-                    <h4>3 - Entorno: Marque una casilla que corresponda</h4>
-                    <input type="checkbox" id="entorno" name="entorno[]" value="Paciente solo">Paciente esta solo al momento de caída?<br>                                  
-                    <input type="checkbox" id="entorno" name="entorno[]" value="Acompañado ">Acompañado<br>
-                
-                    <label>Timbre llamada funcionando:</label>
-                    <input type="radio" id="entorno" name="entorno_timbre[]" value="Sí">Si<br> 
-                    <input type="radio" id="entorno" name="entorno_timbre[]" value="No">No<br>             
+                    </fieldset>
+
+                    <fieldset>
+                        <legend>3 - Entorno: Marque una casilla que corresponda</legend>
+                        <input type="checkbox" id="entorno" name="entorno[]" value="Paciente solo">Paciente esta solo al momento de caída?<br>                                  
+                        <input type="checkbox" id="entorno" name="entorno[]" value="Acompañado ">Acompañado<br>
                     
-                    <label>Iluminación Suficiente:</label>
-                    <input type="radio" id="entorno" name="entorno_iluminacion[]" value="Sí">Si<br> 
-                    <input type="radio" id="entorno" name="entorno_iluminacion[]" value="No">No<br>            
+                        <label>Timbre llamada funcionando:</label>
+                        <input type="radio" id="entorno" name="entorno_timbre[]" value="Sí">Si<br> 
+                        <input type="radio" id="entorno" name="entorno_timbre[]" value="No">No<br>             
+                        
+                        <label>Iluminación Suficiente:</label>
+                        <input type="radio" id="entorno" name="entorno_iluminacion[]" value="Sí">Si<br> 
+                        <input type="radio" id="entorno" name="entorno_iluminacion[]" value="No">No<br>            
+                        
+                        <label>Espacio Libre de Riesgo en sitio de caída:</label>    
+                        <input type="radio" id="entorno" name="entorno_espacio[]" value="Sí">Sí<br>
+                        <input type="radio" id="entorno" name="entorno_espacio[]" value="No">No<br>                            
+                    </fieldset>
+
+                    <fieldset>
+                        <legend>4 - Actividad Asociada: Marque una casilla que corresponda</legend>                                        
+                        <input type="checkbox" name="actividad[]" value="Deambulando">Deambulando<br>                 
+                        <input type="checkbox" name="actividad[]" value="Cambio de posición">Cambio de posición<br>                
+                        <input type="checkbox" name="actividad[]" value=" Traslado a silla/cama">Traslado a silla/cama<br>                  
+                        <input type="checkbox" name="actividad[]" value="Eliminación - WC">Eliminación - WC<br>                
+                        <input type="checkbox" name="actividad[]" value="Aseo">Aseo<br>                
+                        <input type="checkbox" name="actividad[]" value="Alcanzando Objetos">Alcanzando Objetos<br>
                     
-                    <label>Espacio Libre de Riesgo en sitio de caída:</label>    
-                    <input type="radio" id="entorno" name="entorno_espacio[]" value="Sí">Sí<br>
-                    <input type="radio" id="entorno" name="entorno_espacio[]" value="No">No<br>                            
+                        <h4>Uso Medicamentos: Marque todos los que correspondan</h4>                    
+                        <input type="checkbox" name="medicamentos_paciente[]" value="Opiáceos">Opiáceos<br>                
+                        <input type="checkbox" name="medicamentos_paciente[]" value="Antidepresivo">Antidepresivo<br>                
+                        <input type="checkbox" name="medicamentos_paciente[]" value="Sedantes">Sedantes<br> 
+                        <input type="checkbox" name="medicamentos_paciente[]" value="Tranquilizantes">Tranquilizantes<br>
+                        <input type="checkbox" name="medicamentos_paciente[]" value="Hipotensores">Hipotensores<br>
+                        <input type="checkbox" name="medicamentos_paciente[]" value="Diuréticos">Diuréticos<br>
+                    </fieldset>
                 
-                    <h4>4 - Actividad Asociada: Marque una casilla que corresponda</h4>                    
-                    <input type="checkbox" name="actividad[]" value="Deambulando">Deambulando<br>                 
-                    <input type="checkbox" name="actividad[]" value="Cambio de posición">Cambio de posición<br>                
-                    <input type="checkbox" name="actividad[]" value=" Traslado a silla/cama">Traslado a silla/cama<br>                  
-                    <input type="checkbox" name="actividad[]" value="Eliminación - WC">Eliminación - WC<br>                
-                    <input type="checkbox" name="actividad[]" value="Aseo">Aseo<br>                
-                    <input type="checkbox" name="actividad[]" value="Alcanzando Objetos">Alcanzando Objetos<br>
-                
-                    <h4>Uso Medicamentos: Marque todos los que correspondan</h4>                    
-                    <input type="checkbox" name="medicamentos_paciente[]" value="Opiáceos">Opiáceos<br>                
-                    <input type="checkbox" name="medicamentos_paciente[]" value="Antidepresivo">Antidepresivo<br>                
-                    <input type="checkbox" name="medicamentos_paciente[]" value="Sedantes">Sedantes<br> 
-                    <input type="checkbox" name="medicamentos_paciente[]" value="Tranquilizantes">Tranquilizantes<br>
-                    <input type="checkbox" name="medicamentos_paciente[]" value="Hipotensores">Hipotensores<br>
-                    <input type="checkbox" name="medicamentos_paciente[]" value="Diuréticos">Diuréticos<br>
+                    <fieldset>
+                        <legend>Estado del Paciente Previo a la Caída:</legend>
+                        <h4>1. Historia de Caídas Previas: Marque todas las casillas que correspondan</h4>                   
+                        <input type="radio" id="estado_paciente" name="estado_paciente[]" value="Nunca"> Nunca<br>
+                        <input type="radio" id="estado_paciente" name="estado_paciente[]" value="Si, en el domicilio"> Si, en el domicilio<br>               
+                        <input type="radio" id="estado_paciente" name="estado_paciente[]" value="Si, en el Hospital"> Si, en el Hospital<br> 
                     
-                
-                    <h4>Estado del Paciente Previo a la Caída:</h4>
-                    <h4>1. Historia de Caídas Previas: Marque todas las casillas que correspondan</h4>                   
-                    <input type="radio" id="estado_paciente" name="estado_paciente[]" value="Nunca"> Nunca<br>
-                    <input type="radio" id="estado_paciente" name="estado_paciente[]" value="Si, en el domicilio"> Si, en el domicilio<br>               
-                    <input type="radio" id="estado_paciente" name="estado_paciente[]" value="Si, en el Hospital"> Si, en el Hospital<br> 
-                
-                    <h4>2. Estado de Conciencia: marque una casilla que corresponda</h4>                    
-                    <input type="checkbox" name="estado_paciente[]" value="Alerta"> Alerta<br>               
-                    <input type="checkbox" name="estado_paciente[]" value="Confuso"> Confuso<br>              
-                    <input type="checkbox" name="estado_paciente[]" value="Agitado"> Agitado<br>               
-                    <input type="checkbox" name="estado_paciente[]" value="Inconsciente"> Inconsciente<br>
+                        <h4>2. Estado de Conciencia: marque una casilla que corresponda</h4>                    
+                        <input type="checkbox" name="estado_paciente[]" value="Alerta"> Alerta<br>               
+                        <input type="checkbox" name="estado_paciente[]" value="Confuso"> Confuso<br>              
+                        <input type="checkbox" name="estado_paciente[]" value="Agitado"> Agitado<br>               
+                        <input type="checkbox" name="estado_paciente[]" value="Inconsciente"> Inconsciente<br>
+                        
+                        <h4>3. Alteraciones o déficit Sensorial: marque todas las casillas que correspondan</h4>                    
+                        <input type="checkbox" name="estado_paciente[]" value="Ninguna"> Ninguna<br>                
+                        <input type="checkbox" name="estado_paciente[]" value="Audición disminuida"> Audición disminuida<br>               
+                        <input type="checkbox" name="estado_paciente[]" value="Visión disminuida"> Visión disminuida<br>                
+                        <input type="checkbox" name="estado_paciente[]" value="Alt. Equilibrio"> Alt. Equilibrio<br>
                     
-                    <h4>3. Alteraciones o déficit Sensorial: marque todas las casillas que correspondan</h4>                    
-                    <input type="checkbox" name="estado_paciente[]" value="Ninguna"> Ninguna<br>                
-                    <input type="checkbox" name="estado_paciente[]" value="Audición disminuida"> Audición disminuida<br>               
-                    <input type="checkbox" name="estado_paciente[]" value="Visión disminuida"> Visión disminuida<br>                
-                    <input type="checkbox" name="estado_paciente[]" value="Alt. Equilibrio"> Alt. Equilibrio<br>
-                
-                    <h4>4. Movilidad: marque una casilla que corresponda</h4>                    
-                    <input type="checkbox" name="estado_paciente[]" value="Completa">Completa<br>                
-                    <input type="checkbox" name="estado_paciente[]" value="Usa ayudas técnicas">Usa ayudas técnicas<br>                
-                    <input type="checkbox" name="estado_paciente[]" value="Restringida">Restringida<br>                
-                    <input type="checkbox" name="estado_paciente[]" value="En cama">En cama<br>
-                                
-                    <h4>5. Paso o Caminata: marque todas las casillas que correspondan</h4>                    
-                    <input type="checkbox" name="estado_paciente[]" value="Estable">Estable<br>                
-                    <input type="checkbox" name="estado_paciente[]" value="Con Temblor">Con Temblor<br>                
-                    <input type="checkbox" name="estado_paciente[]" value="Inestable">Inestable<br>                
-                    <input type="checkbox" name="estado_paciente[]" value="Dif. en Transferencia">Dif. en Transferencia<br>
+                        <h4>4. Movilidad: marque una casilla que corresponda</h4>                    
+                        <input type="checkbox" name="estado_paciente[]" value="Completa">Completa<br>                
+                        <input type="checkbox" name="estado_paciente[]" value="Usa ayudas técnicas">Usa ayudas técnicas<br>                
+                        <input type="checkbox" name="estado_paciente[]" value="Restringida">Restringida<br>                
+                        <input type="checkbox" name="estado_paciente[]" value="En cama">En cama<br>
                                     
-                    <h4>Observaciones Adicionales:</h4> 
-                    <textarea id="observaciones"  name="observaciones" placeholder="Observaciones adicionales"></textarea>          
-                    
+                        <h4>5. Paso o Caminata: marque todas las casillas que correspondan</h4>                    
+                        <input type="checkbox" name="estado_paciente[]" value="Estable">Estable<br>                
+                        <input type="checkbox" name="estado_paciente[]" value="Con Temblor">Con Temblor<br>                
+                        <input type="checkbox" name="estado_paciente[]" value="Inestable">Inestable<br>                
+                        <input type="checkbox" name="estado_paciente[]" value="Dif. en Transferencia">Dif. en Transferencia<br>
+                                        
+                        <h4>Observaciones Adicionales:</h4> 
+                        <textarea id="observaciones"  name="observaciones" placeholder="Observaciones adicionales"></textarea>          
+                    </fieldset>
+
                     <label for="reporte">Detalle del reporte:</label>
                     <input type="text" class="formulario__input" id="nombre" name = "nombre_reporte" placeholder="Nombre completo"> 
                     <label for="nombre">Fecha Reporte</label>
@@ -188,8 +199,10 @@
             </div>  
         </div>
     </main>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <script src="validacion.js"></script>
-    <script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
+
+
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
@@ -229,4 +242,3 @@
 
 </body>
 </html>
-
