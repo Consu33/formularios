@@ -270,7 +270,8 @@ label {
 
 @media (max-width: 600px) {
     .form {
-        padding: 15px;
+        font-size: 14px;
+        padding: 10px;
     }
     
     input[type="text"], input[type="number"], input[type="date"], select, textarea {
@@ -285,8 +286,20 @@ label {
     input[type="submit"], input[type="reset"] {
         width: 100%;
         margin: 5px 0;
-    }
+    }   
+    
+}
 
-    
-    
+@media (min-width: 601px) and (max-width: 1024px) {
+    .form {
+        font-size: 18px;
+        padding: 20px;
+    }
+}
+
+@media (min-width: 1025px) {
+    .form  {
+        font-size: 22px;
+        padding: 30px;
+    }
 }
