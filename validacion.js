@@ -1,35 +1,86 @@
 const formularios = document.querySelectorAll('form'); // Selecciona todos los formularios en la página
 const inputs = document.querySelectorAll('form input'); // Selecciona todos los inputs en todos los formularios
 
-const validarRutChileno = (ev_rut) => {
-    // Eliminar puntos y guion
-    let valor = ev_rut.replace(/\./g, '').replace('-', '');
+// Configuración de validación y formato para el RUT
+const rutOptions = {
+    validateOn: 'blur',
+    formatOn: 'blur',
+    useThousandsSeparator: true,
+    minimumLength: 2
+};
 
-    // Extraer el dígito verificador
-    let cuerpo = valor.slice(0, -1);
-    let dv = valor.slice(-1).toUpperCase();
+// Elimina puntos y guion del RUT
+function clearFormat(value) {
+    return value.replace(/[\.\-]/g, "");
+}
 
-    // Validar el cuerpo del RUT (que sea un número)
-    if (!cuerpo.match(/^\d+$/)) {
-        return false;
+// Aplica el formato al RUT (con puntos y guion)
+function formatRut(value, useThousandsSeparator = true) {
+    let [cRut, cDv] = splitRutAndDv(value);
+    if (!cRut || !cDv) return value;
+
+    let rutFormatted = "";
+    const thousandsSeparator = useThousandsSeparator ? "." : "";
+    while (cRut.length > 3) {
+        rutFormatted = thousandsSeparator + cRut.slice(-3) + rutFormatted;
+        cRut = cRut.slice(0, -3);
     }
+    return cRut + rutFormatted + "-" + cDv;
+}
 
-    // Calcular el dígito verificador esperado
+// Divide el RUT en cuerpo y dígito verificador
+function splitRutAndDv(rut) {
+    const cValue = clearFormat(rut);
+    if (cValue.length < rutOptions.minimumLength) return [null, null];
+    const cDv = cValue.slice(-1).toUpperCase();
+    const cRut = cValue.slice(0, -1);
+    return [cRut, cDv];
+}
+
+// Calcula el dígito verificador
+function computeDv(rut) {
     let suma = 0;
     let multiplo = 2;
-
-    // Iterar desde el último dígito del cuerpo hasta el primero
-    for (let i = cuerpo.length - 1; i >= 0; i--) {
-        suma += multiplo * parseInt(cuerpo.charAt(i));
-        multiplo = (multiplo < 7) ? multiplo + 1 : 2;
+    for (let i = rut.length - 1; i >= 0; i--) {
+        suma += multiplo * parseInt(rut.charAt(i));
+        multiplo = multiplo < 7 ? multiplo + 1 : 2;
     }
+    const dv = 11 - (suma % 11);
+    return dv === 11 ? '0' : dv === 10 ? 'K' : dv.toString();
+}
 
-    let dvEsperado = 11 - (suma % 11);
-    dvEsperado = (dvEsperado === 11) ? '0' : (dvEsperado === 10) ? 'K' : dvEsperado.toString();
+// Valida el RUT
+function validarRutChileno(rut) {
+    const [cRut, cDv] = splitRutAndDv(rut);
+    if (!cRut || isNaN(cRut)) return false;
+    return computeDv(cRut) === cDv;
+}
 
-    // Comparar el dígito verificador calculado con el ingresado
-    return dv === dvEsperado;
-};
+// Aplicar formato y validar el RUT al campo de entrada
+function applyRutValidation(inputId) {
+    const input = document.getElementById(inputId);
+    const errorMsg = document.querySelector("#grupo__ev_rut .formulario__input-error");
+
+    input.addEventListener(rutOptions.formatOn, () => {
+        input.value = formatRut(input.value, rutOptions.useThousandsSeparator);
+    });
+
+    input.addEventListener(rutOptions.validateOn, () => {
+        if (validarRutChileno(input.value)) {
+            input.classList.remove("invalid");
+            input.classList.add("valid");
+            errorMsg.style.display = "none"; // Oculta el mensaje de error
+        } else {
+            input.classList.remove("valid");
+            input.classList.add("invalid");
+            errorMsg.style.display = "block"; // Muestra el mensaje de error
+        }
+    });
+}
+
+// Aplicar la validación al campo con id 'ev_rut'
+applyRutValidation('ev_rut');
+
 
 const expresiones = {
     ev_rut:  /^[0-9\-]{8,10}$/,// Numeros, guion
@@ -100,7 +151,7 @@ inputs.forEach((input) => {
     input.addEventListener('blur', validarFormulario);
 });
 
-formulario.addEventListener('submit', () => {
+formularios.addEventListener('submit', () => {
 
 });
 
