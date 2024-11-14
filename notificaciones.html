@@ -21,7 +21,7 @@
                 <div class="formulario__grupo" id="grupo__nombre">
                     <label for="nombre" class="formulario__label">Nombre:</label>
                     <div class="formulario__grupo-input">
-                        <input type="text" class="formulario__input" id="nombre" name="nombre" required>
+                        <input type="text" class="formulario__input" id="grupo__nombre" name="nombre" required>
                         <i class="formulario__validacion-estado fas fa-times-circle"></i>
                     </div>
                     <p class="formulario__input-error">El nombre solo debe contener letras</p>
@@ -30,20 +30,22 @@
                 <div class="formulario__grupo" id="grupo__apellido">
                     <label for="apellido" class="formulario__label">Apellido:</label>
                     <div class="formulario__grupo-input">
-                        <input type="text" class="formulario__input" id="apellido" name="apellido" required>
+                        <input type="text" class="formulario__input" id="grupo__apellido" name="apellido" required>
                         <i class="formulario__validacion-estado fas fa-times-circle"></i>
                     </div>
                     <p class="formulario__input-error">El apellido solo debe contener letras</p>
                 </div>
 
-                    <label for="sexo_m">Sexo</label>
-                    <input type="radio" id="sexo_m" name="sexo" value="Hombre">Masculino<br>
-                    <input type="radio" id="sexo_f" name="sexo" value="Mujer">Femenino<br>
+                    <label class="sexo_m_contenedor">Sexo</label>
+                    <div class="sexo_m">
+                        <input type="radio" id="sexo_m" name="sexo" value="Hombre">Masculino<br>
+                        <input type="radio" id="sexo_f" name="sexo" value="Mujer">Femenino<br>
+                    </div>
                     
                 <div class="formulario__grupo" id="grupo__edad">   
                     <label for="edad" class="formulario__label">Edad:</label>
                     <div class="formulario__grupo-input">
-                        <input type="number" class="formulario__input" id="edad" name="edad">
+                        <input type="number" class="formulario__input" id="grupo__edad" name="edad">
                         <i class="formulario__validacion-estado fas fa-times-circle"></i>
                         <p class="formulario__input-error">Edad solo debe contener números</p>
                     </div>
@@ -58,7 +60,7 @@
                 <div class="formulario__grupo" id="grupo__sala">
                     <label for="sala" class="formulario__label">Sala:</label>
                     <div class="formulario__grupo-input">
-                        <input type="number" class="formulario__input" id="sala" name="sala">
+                        <input type="number" class="formulario__input" id="grupo__sala" name="sala">
                         <i class="formulario__validacion-estado fas fa-times-circle"></i>
                         <p class="formulario__input-error">Sala solo debe contener números</p>
                     </div>
@@ -200,7 +202,7 @@
         </div>
     </main>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-    <script src="validacion.js"></script>
+    <script src="validacion_notificaciones.js"></script>
 
 
 
