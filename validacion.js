@@ -1,7 +1,8 @@
-const formularios = document.querySelectorAll('form'); // Selecciona todos los formularios en la página
-const inputs = document.querySelectorAll('form input'); // Selecciona todos los inputs en todos los formularios
+// Selecciona el formulario y sus inputs
+const formularioEventos = document.querySelector('#eventos_adversos');
+const inputsEventos = formularioEventos.querySelectorAll('input');
 
-// Configuración de validación y formato para el RUT
+// Configuración para la validación del RUT
 const rutOptions = {
     validateOn: 'blur',
     formatOn: 'blur',
@@ -56,102 +57,72 @@ function validarRutChileno(rut) {
     return computeDv(cRut) === cDv;
 }
 
-// Aplicar formato y validar el RUT al campo de entrada
-function applyRutValidation(inputId) {
-    const input = document.getElementById(inputId);
+// Aplica el formato y valida el RUT al campo de entrada
+function applyRutValidation() {
+    const inputRut = document.getElementById("ev_rut");
     const errorMsg = document.querySelector("#grupo__ev_rut .formulario__input-error");
 
-    input.addEventListener(rutOptions.formatOn, () => {
-        input.value = formatRut(input.value, rutOptions.useThousandsSeparator);
+    inputRut.addEventListener(rutOptions.formatOn, () => {
+        inputRut.value = formatRut(inputRut.value, rutOptions.useThousandsSeparator);
     });
 
-    input.addEventListener(rutOptions.validateOn, () => {
-        if (validarRutChileno(input.value)) {
-            input.classList.remove("invalid");
-            input.classList.add("valid");
-            errorMsg.style.display = "none"; // Oculta el mensaje de error
+    inputRut.addEventListener(rutOptions.validateOn, () => {
+        if (validarRutChileno(inputRut.value)) {
+            inputRut.classList.remove("invalid");
+            inputRut.classList.add("valid");
+            errorMsg.style.display = "none";
         } else {
-            input.classList.remove("valid");
-            input.classList.add("invalid");
-            errorMsg.style.display = "block"; // Muestra el mensaje de error
+            inputRut.classList.remove("valid");
+            inputRut.classList.add("invalid");
+            errorMsg.style.display = "block";
         }
     });
 }
 
-// Aplicar la validación al campo con id 'ev_rut'
-applyRutValidation('ev_rut');
+// Llama a la función para activar la validación en el RUT
+applyRutValidation();
 
+// Expresiones regulares para validar el resto de campos
+const expresionesEventos = {
+    ev_ficha: /^[0-9]{1,2}$/, // Solo números
+};
 
-const expresiones = {
-    ev_rut:  /^[0-9\-]{8,10}$/,// Numeros, guion
-    ev_ficha: /^[0-9]{1,100}$/, // Números.
-    ev_piso: /^[a-zA-ZÀ-ÿ\s\0-9]+[a-zA-ZÀ-ÿ\s\0-9]{4,11}$/, // Letras, numeros, espacios
-    ev_piso_ambito: /^[a-zA-ZÀ-ÿ\s\0-9]+[a-zA-ZÀ-ÿ\s\0-9]{4,11}$/, // Letras, numeros, espacios
-	nombre: /^[a-zA-ZÀ-ÿ\s\u00f1\u00d1]{1,40}$/, // Letras y espacios
-    apellido: /^[a-zA-ZÀ-ÿ\s\u00f1\u00d1]+$/, // Letras
-	edad: /^[0-9]{1,3}$/, // Números.
-	sala: /^[0-9]{1,100}$/, // Números.	
-}
-
-const validarFormulario = (e) => {
-    switch (e.target.name){
-        case "ev_rut":
-            validarCampo(validarRutChileno, e.target, 'ev_rut');
-        break;
+// Validación de los campos en el formulario de eventos
+const validarFormularioEventos = (e) => {
+    switch (e.target.name) {
         case "ev_ficha":
-            validarCampo(expresiones.ev_ficha, e.target, 'ev_ficha');
-        break;
-        case "ev_piso":
-            validarCampo(expresiones.ev_piso, e.target, 'ev_piso');
-        break;
-        case "ev_piso_ambito":
-            validarCampo(expresiones.ev_piso_ambito, e.target, 'ev_piso_ambito');
-        break;
-        case "nombre":
-            validarCampo(expresiones.nombre, e.target, 'nombre');
-        break;
-        case "apellido":
-            validarCampo(expresiones.apellido, e.target, 'apellido');
-        break;
-        case "edad":
-            validarCampo(expresiones.edad, e.target, 'edad');
-        break;
-        case "sala":
-            validarCampo(expresiones.sala, e.target, 'sala');
-        break;
+            validarCampo(expresionesEventos.ev_ficha, e.target, 'ev_ficha');
+            break;
     }
-}
+};
 
-const validarCampo = (validacion, input, campo) => {
-    let valido = false;
+// Función general para validar un campo
+const validarCampo = (expresion, input, campo) => {
+    const valido = expresion.test(input.value);
+    const grupoCampo = document.getElementById(`grupo__${campo}`);
 
-    if (campo === 'ev_rut') {
-        valido = validacion(input.value);
+    if (valido) {
+        grupoCampo.classList.remove('formulario__grupo-incorrecto');
+        grupoCampo.classList.add('formulario__grupo-correcto');
+        grupoCampo.querySelector('i').classList.add('fa-check-circle');
+        grupoCampo.querySelector('i').classList.remove('fa-times-circle');
+        grupoCampo.querySelector('.formulario__input-error').classList.remove('formulario__input-error-activo');
     } else {
-        valido = validacion.test(input.value);
+        grupoCampo.classList.add('formulario__grupo-incorrecto');
+        grupoCampo.classList.remove('formulario__grupo-correcto');
+        grupoCampo.querySelector('i').classList.add('fa-times-circle');
+        grupoCampo.querySelector('i').classList.remove('fa-check-circle');
+        grupoCampo.querySelector('.formulario__input-error').classList.add('formulario__input-error-activo');
     }
+};
 
-    if(valido){
-        document.getElementById(`grupo__${campo}`).classList.remove('formulario__grupo-incorrecto');
-        document.getElementById(`grupo__${campo}`).classList.add('formulario__grupo-correcto');
-        document.querySelector(`#grupo__${campo} i`).classList.add('fa-check-circle');
-        document.querySelector(`#grupo__${campo} i`).classList.remove('fa-times-circle');
-        document.querySelector(`#grupo__${campo} .formulario__input-error`).classList.remove('formulario__input-error-activo');
-    }else {
-        document.getElementById(`grupo__${campo}`).classList.add('formulario__grupo-incorrecto');
-        document.getElementById(`grupo__${campo}`).classList.remove('formulario__grupo-correcto');
-        document.querySelector(`#grupo__${campo} i`).classList.add('fa-times-circle');
-        document.querySelector(`#grupo__${campo} i`).classList.remove('fa-check-circle');
-        document.querySelector(`#grupo__${campo} .formulario__input-error`).classList.add('formulario__input-error-activo');
-    }
-}
-
-inputs.forEach((input) => {
-    input.addEventListener('keyup', validarFormulario);
-    input.addEventListener('blur', validarFormulario);
+// Event listeners para los campos del formulario de eventos
+inputsEventos.forEach((input) => {
+    input.addEventListener('keyup', validarFormularioEventos);
+    input.addEventListener('blur', validarFormularioEventos);
 });
-
-formularios.addEventListener('submit', () => {
-
+formularioEventos.addEventListener('submit', (e) => {
+    e.preventDefault();
+    // Lógica adicional para el envío del formulario
+    console.log("Formulario de eventos adversos enviado con éxito");
 });
-
